@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from db import db_start, create_profile, edit_profile
+
 from config import BOT_TOKEN
 
 loop = asyncio.new_event_loop()
@@ -12,7 +12,7 @@ dp = Dispatcher(bot, loop=loop, storage=storage)
 
 @dp.message_handler(commands=['start'])
 async def cmd_start(message: types.Message):
-    await message.answer('Для поиска новостей введите команду /news. Для создания профиля - /create')
+    await message.answer('Для поиска новостей введите команду /news')
 
 
 async def shutdown(dp):
